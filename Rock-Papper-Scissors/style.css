@@ -1,0 +1,18 @@
+* {
+  font-family: "RocknRoll One", sans-serif;
+}
+body {
+  background-color: #aa381e;
+}
+.header {
+  background-color:  #aa381e;
+  color: #000;
+  padding-bottom: 20px;
+  text-align: center;
+  border-bottom: 5px solid #000;
+}
+.header h1 {
+  padding: 25px;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 2px rgb(238, 237, 237);
+}
