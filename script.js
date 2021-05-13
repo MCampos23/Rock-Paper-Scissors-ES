@@ -96,9 +96,7 @@ function stayOn(img) {
 
 function clearBorder() {
     pcImg.forEach(pcImg)=> pcImg.classLisst.remove("pcPlay")
-    playerColumn.children[0].children[0].classList.remove("pcPlay")
-    playerColumn.children[1].children[0].classList.remove("pcPlay")
-    playerColumn.children[2].children[0].classList.remove("pcPlay")
+    playerColumn.children.forEach(child)=> child.remove("pcPlay")
 }
 
 function stopEffect() {
