@@ -1,45 +1,53 @@
-let player
-let pc = "scissors"
-
-
 let playerColumn = document.querySelector('#player-column')
-let pcColumn = document.querySelector('#pc-column')
-let playerScore = document.querySelector('#player-score')
-let pcScore = document.querySelector('#pc-score')
-let resultMessage = document.querySelector('#result-message')
+let pcImg=Array.from(document.querySelectorAll('.pc-img'))
 let playerPoints = 0
 let pcPoints = 0
-
-//Jugador hace click en su jugada el marco de la columna de pc se mueve durante dos segundos y acaba en la img que el pc ha seleccionado
+let player
+let pc 
+let finished = true
 
 playerColumn.onclick = (e) => {
-    player = e.target.alt
-    //pcPlay()
-    clearBorder()
-    pcPlayEffect()
-    //compareResult()
+    
+    if(finished===true){
+        finished = false
+        clearBorder()
+        pcPlay()
+        e.target.classList.add('pcPlay')
+        pcPlayEffect()
+        player = e.target.alt
+        setTimeout(() => {
+            finished = true
+            compareResult()
+        }, 2400);
+    }
+}
+
+function disableButtons (){
+    playerColumn.onclick={}
 }
 
 function pcPlay() {
     num = Math.ceil(Math.random() * 3)
     if (num == 1)
-        pc = "rock"
+    pc = "rock"
     else if (num == 2)
-        pc = "papper"
+    pc = "papper"
     else
-        pc = "scissors"
+    pc = "scissors"
     return pc
 }
 
 function compareResult() {
     if (pc == player)
-        showResultMessage("Tie")
+    showResultMessage("Tie")
     else if ((player == "rock" && pc == "papper") || (player == "papper" && pc == "scissors") || (player == "scissors" && pc == "rock")) {
+        let pcScore = document.querySelector('#pc-score')
         pcPoints++
         pcScore.innerHTML = pcPoints
         showResultMessage("You lose...")
     }
     else {
+        let playerScore = document.querySelector('#player-score')
         playerPoints++
         playerScore.innerHTML = playerPoints
         showResultMessage("You win!")
@@ -47,8 +55,9 @@ function compareResult() {
 }
 
 function showResultMessage(message) {
+    let resultMessage = document.querySelector('#result-message')
     resultMessage.innerHTML = message
-    setTimeout(() => { resultMessage.innerHTML = ""; }, 1000)
+    setTimeout(() => { resultMessage.innerHTML = ""; }, 2000)
 }
 
 
@@ -69,32 +78,36 @@ function pcPlayEffect() {
             }
         }
         startEffect();
-    }, 600);
+    }, 450);
 }
 
 function startEffect() {
     addRemoveBorder(0)
     setTimeout(() => {
         addRemoveBorder(1)
-    }, 200);
+    }, 150);
     setTimeout(() => {
         addRemoveBorder(2)
-    }, 400);
+    }, 300);
 }
 
 function addRemoveBorder(img) {
-    pcColumn.children[img].children[0].classList.toggle("pcPlay")
-    setTimeout(function () { pcColumn.children[img].children[0].classList.toggle("pcPlay") }, 200);
+    pcImg[img].classList.toggle("pcPlay")
+    setTimeout(function () { pcImg[img].classList.toggle("pcPlay") }, 150);
 }
 
 function stayOn(img) {
-    setTimeout(function () { pcColumn.children[img].children[0].classList.add("pcPlay") }, 600);
+    setTimeout(function () { pcImg[img].classList.add("pcPlay") }, 450);
 }
 
 function clearBorder() {
-    pcColumn.children[0].children[0].classList.remove("pcPlay")
-    pcColumn.children[1].children[0].classList.remove("pcPlay")
-    pcColumn.children[2].children[0].classList.remove("pcPlay")
+    pcImg[0].classList.remove("pcPlay")
+    pcImg[1].classList.remove("pcPlay")
+    pcImg[2].classList.remove("pcPlay")
+    
+    playerColumn.children[0].children[0].classList.remove("pcPlay")
+    playerColumn.children[1].children[0].classList.remove("pcPlay")
+    playerColumn.children[2].children[0].classList.remove("pcPlay")
 }
 
 function stopEffect() {
