@@ -22,10 +22,6 @@ playerColumn.onclick = (e) => {
     }
 }
 
-function disableButtons (){
-    playerColumn.onclick={}
-}
-
 function pcPlay() {
     num = Math.ceil(Math.random() * 3)
     if (num == 1)
