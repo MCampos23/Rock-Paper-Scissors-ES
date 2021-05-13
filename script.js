@@ -1,5 +1,6 @@
 let playerColumn = document.querySelector('#player-column')
-let pcImg = Array.from(document.querySelectorAll('.pc-img'))
+let pcImgs = Array.from(document.querySelectorAll('.pc-img'))
+let playerImgs = Array.from(document.querySelectorAll('.player-img'))
 let playerPoints = 0
 let pcPoints = 0
 let playerChoice
@@ -7,7 +8,8 @@ let pcChoice
 let interval
 let finished = true
 
-playerColumn.onclick = (e) => {
+playerImgs.forEach(playerImg)=>{
+    playerImg.onclick = (e) => {
     if(finished===true){
         finished = false
         clearBorder()
@@ -21,7 +23,7 @@ playerColumn.onclick = (e) => {
         }, 2400);
     }
 }
-
+}
 function pcPlay() {
     num = Math.ceil(Math.random() * 3)
     if (num == 1)
