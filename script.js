@@ -1,5 +1,5 @@
 let player
-let pc
+let pc = "scissors"
 
 
 let playerColumn = document.querySelector('#player-column')
@@ -10,14 +10,14 @@ let resultMessage = document.querySelector('#result-message')
 let playerPoints = 0
 let pcPoints = 0
 
-playerColumn.onclick = (e) => {
-    $( "#resul.message" ).show( "slow" )
-    // player = e.target.alt
-    // pcPlay()
-    // compareResult()
-    // console.log('Player: ' + player)
-    // console.log('Pc: ' + pc)
+//Jugador hace click en su jugada el marco de la columna de pc se mueve durante dos segundos y acaba en la img que el pc ha seleccionado
 
+playerColumn.onclick = (e) => {
+    player = e.target.alt
+    //pcPlay()
+    clearBorder()
+    pcPlayEffect()
+    //compareResult()
 }
 
 function pcPlay() {
@@ -28,7 +28,6 @@ function pcPlay() {
         pc = "papper"
     else
         pc = "scissors"
-
     return pc
 }
 
@@ -47,98 +46,62 @@ function compareResult() {
     }
 }
 
-function showResultMessage(message){
-        resultMessage.innerHTML = message
-        setTimeout(()=>{ resultMessage.innerHTML=""; }, 1000)
-} 
-
-$( "button" ).click(function() {
-    $( "#resul.message" ).show( "slow" );
-  });
-
-let nIntervId
-
-function cambiaDeColor() {
-    nIntervId = setInterval(flasheaTexto, 300);
-}
-
-function flasheaTexto() {
-    let pcPapper = pcColumn.children[1].children[0]
-    pcPapper.classList.toggle("pcPlay")
-
-}
-
-function detenerCambioDeColor() {
-    clearInterval(nIntervId);
+function showResultMessage(message) {
+    resultMessage.innerHTML = message
+    setTimeout(() => { resultMessage.innerHTML = ""; }, 1000)
 }
 
 
-// Comprobacion de los clicks de cada img
-// /*
-// piedra.onclick= function(){alert("has elegido piedra")}
-// papel.onclick= function (){alert("has elegido papel")}
-// tijera.onclick= function(){alert("has elegido tijera")}
-// */
+let interval
+function pcPlayEffect() {
+    let counter = 0;
+    startEffect();
+    interval = setInterval(() => {
+        counter++;
+        if (counter >= 3) {
+            stopEffect();
+            if (pc === "rock") {
+                stayOn(0);
+            } else if (pc === "papper") {
+                stayOn(1);
+            } else if (pc === "scissors") {
+                stayOn(2);
+            }
+        }
+        startEffect();
+    }, 600);
+}
 
-// Asignación del evento onclick de cada imagen
+function startEffect() {
+    addRemoveBorder(0)
+    setTimeout(() => {
+        addRemoveBorder(1)
+    }, 200);
+    setTimeout(() => {
+        addRemoveBorder(2)
+    }, 400);
+}
 
-// piedra.onclick = function () {
-//      jugador = "piedra"
-//      jugadaPc()
-//      console.log("Has elegido " + jugador + " y la máquina " + pc)
-//      compararResultado()
-// }
-// papel.onclick = function () {
-//     jugador = "papel"
-//     jugadaPc()
-//     console.log("Has elegido " + jugador + " y la máquina " + pc)
-//     compararResultado()
-// }
-// tijera.onclick = function () {
-//     jugador = "tijera"
-//     jugadaPc()
-//     console.log("Has elegido " + jugador + " y la máquina " + pc)
-//     compararResultado()
-// }
+function addRemoveBorder(img) {
+    pcColumn.children[img].children[0].classList.toggle("pcPlay")
+    setTimeout(function () { pcColumn.children[img].children[0].classList.toggle("pcPlay") }, 200);
+}
+
+function stayOn(img) {
+    setTimeout(function () { pcColumn.children[img].children[0].classList.add("pcPlay") }, 600);
+}
+
+function clearBorder() {
+    pcColumn.children[0].children[0].classList.remove("pcPlay")
+    pcColumn.children[1].children[0].classList.remove("pcPlay")
+    pcColumn.children[2].children[0].classList.remove("pcPlay")
+}
+
+function stopEffect() {
+    clearInterval(interval)
+}
 
 
-
-// Función para crear la jugada aleatoria del pc
-// function jugadaPc() {
-//     num = Math.random()
-//     num = Math.ceil(num * 3)
-//     if (num == 1)
-//         pc = "piedra"
-//     else if (num == 2)
-//         pc = "papel"
-//     else
-//         pc = "tijera"
-
-//     return pc
-// }
-
-// Función para comparar el resultado del jugador con el pc y sumar puntuación al ganador 
-// function compararResultado() {
-//     if (pc == jugador)
-//         alert("Empate")
-//     else if ((jugador == "piedra" && pc == "papel") || (jugador == "papel" && pc == "tijera") || (jugador == "tijera" && pc == "piedra")){
-//         alert("Pierdes")
-//         marcadorPc++
-//     }
-//     else{
-//         alert("Ganas")
-//         marcadorJugador++
-//     }  
-
-//     console.log("Puntuación jugador: " + marcadorJugador)
-//     console.log("Puntuación pc: " + marcadorPc)
-
-//     if (marcadorJugador >= 3 || marcadorPc >= 3){
-//         alert("Se te han acabado las jugadas")
-//         marcadorPc=0
-//         marcadorJugador=0
-//     }
-// }
 
 
 

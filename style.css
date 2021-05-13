@@ -31,9 +31,7 @@ body {
 #score-column{
   font-size: 40px;
 }
-#result-message{
-  display: none;
-}
+
 .pcPlay{
   border:  5px solid white;
   border-radius: 20%;
