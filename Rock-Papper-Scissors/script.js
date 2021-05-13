@@ -1,15 +1,75 @@
-let player = ""
-let pc = ""
-let playerScore = 0
-let pcScore = 0
+let player
+let pc
 
-container = document.querySelector('.container')
-rock = document.querySelector("#rock")
-papper = document.querySelector("#papper")
-scissors = document.querySelector("#scissors")
 
-container.onclick = (e)=>{
-    console.log(e.target.id)
+let playerColumn = document.querySelector('#player-column')
+let pcColumn = document.querySelector('#pc-column')
+let playerScore = document.querySelector('#player-score')
+let pcScore = document.querySelector('#pc-score')
+let resultMessage = document.querySelector('#result-message')
+let playerPoints = 0
+let pcPoints = 0
+
+playerColumn.onclick = (e) => {
+    $( "#resul.message" ).show( "slow" )
+    // player = e.target.alt
+    // pcPlay()
+    // compareResult()
+    // console.log('Player: ' + player)
+    // console.log('Pc: ' + pc)
+
+}
+
+function pcPlay() {
+    num = Math.ceil(Math.random() * 3)
+    if (num == 1)
+        pc = "rock"
+    else if (num == 2)
+        pc = "papper"
+    else
+        pc = "scissors"
+
+    return pc
+}
+
+function compareResult() {
+    if (pc == player)
+        showResultMessage("Tie")
+    else if ((player == "rock" && pc == "papper") || (player == "papper" && pc == "scissors") || (player == "scissors" && pc == "rock")) {
+        pcPoints++
+        pcScore.innerHTML = pcPoints
+        showResultMessage("You lose...")
+    }
+    else {
+        playerPoints++
+        playerScore.innerHTML = playerPoints
+        showResultMessage("You win!")
+    }
+}
+
+function showResultMessage(message){
+        resultMessage.innerHTML = message
+        setTimeout(()=>{ resultMessage.innerHTML=""; }, 1000)
+} 
+
+$( "button" ).click(function() {
+    $( "#resul.message" ).show( "slow" );
+  });
+
+let nIntervId
+
+function cambiaDeColor() {
+    nIntervId = setInterval(flasheaTexto, 300);
+}
+
+function flasheaTexto() {
+    let pcPapper = pcColumn.children[1].children[0]
+    pcPapper.classList.toggle("pcPlay")
+
+}
+
+function detenerCambioDeColor() {
+    clearInterval(nIntervId);
 }
 
 
@@ -69,7 +129,7 @@ container.onclick = (e)=>{
 //         alert("Ganas")
 //         marcadorJugador++
 //     }  
-            
+
 //     console.log("Puntuación jugador: " + marcadorJugador)
 //     console.log("Puntuación pc: " + marcadorPc)
 
