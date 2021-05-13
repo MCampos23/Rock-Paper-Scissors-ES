@@ -16,3 +16,28 @@ body {
   letter-spacing: 5px;
   text-shadow: 1px 1px 2px rgb(238, 237, 237);
 }
+#player-column > div >img{
+  cursor: pointer;
+}
+#player-column > div >img:hover{
+  border:  5px solid white;
+  border-radius: 20%;
+  padding: 10px;
+  width: 150px;
+  margin: -15px 0px;
+  background-color: rgba(255, 203, 194, 0.51);
+  transition: border 300ms;
+}
+#score-column{
+  font-size: 40px;
+}
+#result-message{
+  display: none;
+}
+.pcPlay{
+  border:  5px solid white;
+  border-radius: 20%;
+  padding: 10px;
+  width: 150px;
+  background-color: rgba(255, 203, 194, 0.51);
+}
