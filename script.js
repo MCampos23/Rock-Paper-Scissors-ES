@@ -1,13 +1,13 @@
 let playerColumn = document.querySelector('#player-column')
-let pcImg=Array.from(document.querySelectorAll('.pc-img'))
+let pcImg = Array.from(document.querySelectorAll('.pc-img'))
 let playerPoints = 0
 let pcPoints = 0
 let player
 let pc 
+let interval
 let finished = true
 
 playerColumn.onclick = (e) => {
-    
     if(finished===true){
         finished = false
         clearBorder()
@@ -35,7 +35,7 @@ function pcPlay() {
 
 function compareResult() {
     if (pc == player)
-    showResultMessage("Tie")
+        showResultMessage("Tie")
     else if ((player == "rock" && pc == "papper") || (player == "papper" && pc == "scissors") || (player == "scissors" && pc == "rock")) {
         let pcScore = document.querySelector('#pc-score')
         pcPoints++
@@ -56,8 +56,6 @@ function showResultMessage(message) {
     setTimeout(() => { resultMessage.innerHTML = ""; }, 2000)
 }
 
-
-let interval
 function pcPlayEffect() {
     let counter = 0;
     startEffect();
@@ -97,10 +95,7 @@ function stayOn(img) {
 }
 
 function clearBorder() {
-    pcImg[0].classList.remove("pcPlay")
-    pcImg[1].classList.remove("pcPlay")
-    pcImg[2].classList.remove("pcPlay")
-    
+    pcImg.forEach(pcImg)=> pcImg.classLisst.remove("pcPlay")
     playerColumn.children[0].children[0].classList.remove("pcPlay")
     playerColumn.children[1].children[0].classList.remove("pcPlay")
     playerColumn.children[2].children[0].classList.remove("pcPlay")
