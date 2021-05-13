@@ -2,8 +2,8 @@ let playerColumn = document.querySelector('#player-column')
 let pcImg = Array.from(document.querySelectorAll('.pc-img'))
 let playerPoints = 0
 let pcPoints = 0
-let player
-let pc 
+let playerChoice
+let pcChoice 
 let interval
 let finished = true
 
@@ -25,16 +25,16 @@ playerColumn.onclick = (e) => {
 function pcPlay() {
     num = Math.ceil(Math.random() * 3)
     if (num == 1)
-    pc = "rock"
+    pcChoice = "rock"
     else if (num == 2)
-    pc = "papper"
+    pcChoice = "papper"
     else
-    pc = "scissors"
-    return pc
+    pcchoice = "scissors"
+    return pcChoice
 }
 
 function compareResult() {
-    if (pc == player)
+    if (pcChoice == playerchoice)
         showResultMessage("Tie")
     else if ((player == "rock" && pc == "papper") || (player == "papper" && pc == "scissors") || (player == "scissors" && pc == "rock")) {
         let pcScore = document.querySelector('#pc-score')
