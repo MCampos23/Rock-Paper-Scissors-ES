@@ -2,41 +2,58 @@
   font-family: "RocknRoll One", sans-serif;
 }
 body {
+  background-image: url("img/background-template-with-chinese-patterns-red/38164.jpg");
   background-color: #aa381e;
+  background-position:top center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
 }
 .header {
-  background-color:  #aa381e;
+  background-color:  #aa381eb8;
   color: #000;
   padding-bottom: 20px;
   text-align: center;
   border-bottom: 5px solid #000;
 }
+.card{
+  border: 3px solid black;
+  border-radius: 3%;
+}
+label:hover{
+  cursor: pointer;
+}
 .header h1 {
-  padding: 25px;
+  padding: 20px;
   letter-spacing: 5px;
-  text-shadow: 1px 1px 2px rgb(238, 237, 237);
+  font-weight: 700;
+  font-size: 40px;
+  text-shadow: 0px 0px 2px rgb(255, 255, 255);
 }
 #player-column > div >img{
   cursor: pointer;
 }
 #player-column > div >img:hover{
   border:  5px solid white;
-  border-radius: 20%;
+  border-radius: 15%;
   padding: 10px;
   width: 150px;
   margin: -15px 0px;
   background-color: rgba(255, 203, 194, 0.51);
   transition: border 300ms;
 }
+
 #score-column{
-  font-size: 40px;
+  font-size: 45px;
 }
 
 .pcPlay{
   border:  5px solid white;
-  border-radius: 20%;
+  border-radius: 15%;
   margin: -15px 0;
   padding: 10px;
   width: 150px;
   background-color: rgba(255, 203, 194, 0.51);
+}
+.hidden{
+  display: none;
 }
