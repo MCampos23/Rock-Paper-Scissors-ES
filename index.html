@@ -11,14 +11,19 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body>
     <header class="header">
-        <h1>Rock Papper Scissors</h1>
+       
+        <h1>Rock, Papper, Scissors</h1>
     </header>
     <!-- Initial Modal Window-->
-<div class="container" id="initial-modal">
+<div class="container animate__animated" id="initial-modal">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card mt-5">
@@ -51,7 +56,7 @@
     </div>
 </div>
 <!--Game View-->
-    <div class="container pt-3 mt-4 hidden" id="game">
+    <div class="container pt-3 mt-4 hidden animate__animated" id="game">
         <div class="row text-center">
             <div class="d-flex flex-column mb-3 col-md-4" id="player-column">
                 <h3 id="player-name">Player</h3>
@@ -77,14 +82,14 @@
 
 <!-- Finished Game Modal Window -->
 
-<div class="container hidden" id="finished-game-modal">
+<div class="container hidden animate__animated" id="finished-game-modal">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card mt-5">
                 <div class="card-header px-5 py-3">
-                    <h3>Message</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel perferendis minus quaerat.
-                    <15></15></p>
+                    <h3 id="message-header">Message</h3>
+                    <p id="message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel perferendis minus quaerat.
+                    </p>
                 </div>
                 <div class="card-body px-5 py-3 mx-auto">    
                     <button class="btn btn-outline-success p-2 m-3" id="play-again-button">Play Again</button>
@@ -94,7 +99,11 @@
         </div>
     </div>
 </div>
-
+<audio id="back-track" src="sounds/Background music Asian Travel (mp3cut.net).mp3" loop></audio>
+<audio id="hover-sound" src="sounds/Hover.mp3"></audio>
+<audio id="lost" src="sounds/lost.wav"></audio>
+<audio id="win" src="sounds/win.wav"></audio>
+<audio id="pc-play-sound" src="sounds/pcPlayEffect (mp3cut.net).wav"></audio>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
