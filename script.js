@@ -6,7 +6,8 @@ let playerName = document.querySelector("#name")
 let enterButton = document.querySelector("#enter-button")
 let gameModeOptions = Array.from(document.querySelectorAll("input[type='radio']"))
 let gameMode
-
+let buttonPressed = document.querySelector("#button-pressed")
+playerName.onkeydown = function(){buttonPressed.play()}
 
 enterButton.onclick = () => {
     setGameMode()
