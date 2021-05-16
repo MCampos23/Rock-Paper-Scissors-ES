@@ -3,22 +3,22 @@
 }
 body {
   background-image: url("img/background-template-with-chinese-patterns-red/38164.jpg");
-  background-color: #aa381e;
-  background-position:top center; /* Center the image */
+  background-position: top center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
+  background-color: #bb0000;
 }
 .header {
-  background-color:  #aa381eb8;
+  background-color: #aa381eb8;
   padding-bottom: 20px;
   text-align: center;
   border-bottom: 5px solid #000;
 }
-.card{
+.card {
   border: 3px solid black;
   border-radius: 3%;
 }
-label:hover{
+label:hover {
   cursor: pointer;
 }
 .header h1 {
@@ -29,11 +29,11 @@ label:hover{
   color: rgb(0, 0, 0);
   text-shadow: 0px 0px 3px rgb(255, 255, 255);
 }
-#player-column > div >img{
+#player-column > div > img {
   cursor: pointer;
 }
-#player-column > div >img:hover{
-  border:  5px solid white;
+#player-column > div > img:hover {
+  border: 5px solid white;
   border-radius: 15%;
   padding: 10px;
   width: 150px;
@@ -41,23 +41,121 @@ label:hover{
   background-color: rgba(255, 203, 194, 0.51);
   transition: border 300ms;
 }
-#game{
+#game {
   color: rgba(255, 255, 255, 0.891);
 }
 
-#score-column{
+#score-column {
   font-size: 45px;
 }
 
-.pcPlay{
-  border:  5px solid white;
+.pcPlay {
+  border: 5px solid white;
   border-radius: 15%;
   margin: -15px 0;
   padding: 10px;
   width: 150px;
   background-color: rgba(255, 203, 194, 0.51);
 }
-.hidden{
+.hidden {
   display: none;
 }
 
+@media (max-width: 625px) {
+  #game{
+    padding-top: 50px !important;
+  }
+  body {
+    background-size: auto;
+    background-color: #bb0000;
+  }
+  .header h1 {
+    padding: 10px;
+    letter-spacing: 2px;
+    font-size: 35px;
+    text-shadow: 0px 0px 1px rgb(255, 255, 255);
+  }
+  #player-column,
+  #pc-column {
+    width: 33%;
+  }
+  .player-img,
+  .pc-img {
+    width: 85px;
+  }
+  #score-column {
+    width: 33%;
+    font-size: 35px;
+  }
+  #player-column > div > img:hover {
+    border: 3px solid white;
+    border-radius: 15%;
+    padding: 5px;
+    width: 90px;
+    margin: -2.5px 0px;
+    background-color: rgba(255, 203, 194, 0.51);
+    transition: border 300ms;
+  }
+  .pcPlay {
+    border: 3px solid white;
+    border-radius: 15%;
+    margin: -2.5px 0;
+    padding: 5px;
+    width: 90px;
+    background-color: rgba(255, 203, 194, 0.51);
+  }
+}
+@media (max-width: 360px) {
+  #game{
+    padding-top: 20px !important;
+  }
+  .container{
+    padding: 0px 15px;
+  }
+  body {
+    background-size: 350% 120%;
+    background-color: #bb0000;
+  }
+  .header {
+    padding-bottom: 2px;
+  }
+  .header h1 {
+    padding: 5px;
+  }
+p{
+  margin-bottom: 0px;
+}
+  #player-column,
+  #pc-column, #score-column {
+    width: 33%;
+    font-size: 25px;
+    text-align: center;
+  }
+  h3{
+    font-size: 23px;
+  }
+  .player-img,
+  .pc-img {
+    width: 80px;
+  }
+  .pcPlay {
+    border: 2px solid white;
+    border-radius: 15%;
+    margin: -2px 0;
+    padding: 2.5px;
+    width: 80px;
+    background-color: rgba(255, 203, 194, 0.51);
+  }
+  #player-column > div > img:hover {
+    border: 2px solid white;
+    border-radius: 15%;
+    padding: 2.5px;
+    width: 80px;
+    margin: -2px 0;
+    background-color: rgba(255, 203, 194, 0.51);
+    transition: border 300ms;
+  }
+  #finished-game-modal{
+    margin-bottom: 120px;
+  }
+}

@@ -26,12 +26,12 @@
 <div class="container animate__animated" id="initial-modal">
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <div class="card mt-5">
-                <div class="card-header px-5 py-3">
+            <div class="card mt-md-5 mt-2">
+                <div class="card-header  px-md-5 py-3 pb-0">
                     <h3>Did you know?</h3>
                     <p>Rock, paper, scissors was actually created in China. The game was created around the time of Christ, but stayed in China for hundreds of years. It wasn't until the 1700s that it made its way over to Japan. The rest, as they say, is history.</p>
                 </div>
-                <div class="card-body px-5 py-3">
+                <div class="card-body px-md-5 py-md-3 py-0">
                         <div class="form-group">
                             <label for="name">Name: </label>
                             <input type="text" name="name" id="name" class="form-control" autofocus minlength="1">
@@ -56,13 +56,13 @@
     </div>
 </div>
 <!--Game View-->
-    <div class="container pt-3 mt-4 hidden animate__animated" id="game">
+    <div class="container hidden pt-3 mt-4 animate__animated" id="game">
         <div class="row text-center">
             <div class="d-flex flex-column mb-3 col-md-4" id="player-column">
                 <h3 id="player-name">Player</h3>
-                <div class="p-4"><img src="img/rock.png" alt="rock" class="player-img"/></div>
-                <div class="p-4"><img src="img/paper.png" alt="papper" class="player-img"/></div>
-                <div class="p-4"><img src="img/scissors.png" alt="scissors" class="player-img"/></div>
+                <div class="player-img-div p-md-4 py-3"><img src="img/rock.png" alt="rock" class="player-img"/></div>
+                <div class="player-img-div p-md-4 py-3"><img src="img/paper.png" alt="papper" class="player-img"/></div>
+                <div class="player-img-div p-md-4 py-3"><img src="img/scissors.png" alt="scissors" class="player-img"/></div>
             </div>
             <div class="d-flex flex-column justify-content-start mt-5 pt-5 mb-3 col-md-4" id="score-column">
                 <div class="mt-4">
@@ -73,16 +73,16 @@
             </div>
             <div class="d-flex flex-column mb-3 col-md-4" id="pc-column">
                 <h3>PC</h3>
-                <div class="p-4"><img src="img/rock.png" alt="rock" class="pc-img"/></div>
-                <div class="p-4"><img src="img/paper.png" alt="papper" class="pc-img"/></div>
-                <div class="p-4"><img src="img/scissors.png" alt="scissors" class="pc-img"/></div>
+                <div class="pc-img-div p-md-4 py-3"><img src="img/rock.png" alt="rock" class="pc-img"/></div>
+                <div class="pc-img-div p-md-4 py-3"><img src="img/paper.png" alt="papper" class="pc-img"/></div>
+                <div class="pc-img-div p-md-4 py-3"><img src="img/scissors.png" alt="scissors" class="pc-img"/></div>
             </div>
         </div>
     </div>
 
 <!-- Finished Game Modal Window -->
 
-<div class="container hidden animate__animated" id="finished-game-modal">
+<div class="container hidden animate__animated pb-3" id="finished-game-modal">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card mt-5">
