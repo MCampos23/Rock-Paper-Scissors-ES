@@ -1,0 +1,28 @@
+#player-column > div > img {
+  cursor: pointer;
+}
+#player-column > div > img:hover {
+  border: 5px solid white;
+  border-radius: 15%;
+  padding: 10px;
+  width: 150px;
+  margin: -15px 0px;
+  background-color: rgba(255, 203, 194, 0.51);
+  transition: border 300ms;
+}
+#game {
+  color: rgba(255, 255, 255, 0.891);
+}
+
+#score-column {
+  font-size: 45px;
+}
+
+.pcPlay {
+  border: 5px solid white;
+  border-radius: 15%;
+  margin: -15px 0;
+  padding: 10px;
+  width: 150px;
+  background-color: rgba(255, 203, 194, 0.51);
+}
