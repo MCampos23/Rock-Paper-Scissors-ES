@@ -1,15 +1,34 @@
-let messageHeader = document.querySelector("#message-header")
-let message = document.querySelector("#message")
-let backTrack = document.querySelector("#back-track")
-// INITIAL MODAL WINDOW
-let playerName = document.querySelector("#name")
-let enterButton = document.querySelector("#enter-button")
-let gameModeOptions = Array.from(document.querySelectorAll("input[type='radio']"))
-let gameMode
-let buttonPressed = document.querySelector("#button-pressed")
-playerName.onkeydown = function(){buttonPressed.play()}
 
-enterButton.onclick = () => {
+// INITIAL MODAL WINDOW
+let playerName = document.querySelector("#name") 
+let gameModeOptions = Array.from(document.querySelectorAll("input[type='radio']"))
+let message = document.querySelector("#message")
+let gameMode
+
+//Audio
+let buttonPressedSound = document.querySelector("#button-pressed")
+let backTrack = document.querySelector("#back-track")
+let hoverSound = document.querySelector("#hover-sound")
+let lostSound = document.querySelector("#lost")
+let winSound = document.querySelector("#win")
+let pcPlaySound = document.querySelector("#pc-play-sound")
+winSound.volume = 0.7
+
+let initialModal = document.querySelector("#initial-modal")
+let game = document.querySelector("#game")
+let finishedModal = document.querySelector("#finished-game-modal")
+
+function showView(view){
+    initialModal.classList.add('hidden')
+    game.classList.add('hidden')
+    finishedModal.classList.add('hidden')
+    view.classList.remove('hidden')
+ }
+
+
+playerName.onkeydown = () => buttonPressedSound.play()
+
+document.querySelector("#enter-button").onclick = () => {
     setGameMode()
     if (playerName.value != "" && gameMode != undefined) {
         backTrack.play()
@@ -17,8 +36,7 @@ enterButton.onclick = () => {
         document.querySelector("#initial-modal").classList.add("animate__fadeOutRight")
         document.querySelector("#game").classList.add("animate__fadeInUp")
         setTimeout(() => {
-            document.querySelector("#initial-modal").classList.add("hidden")
-            document.querySelector("#game").classList.toggle("hidden")
+           showView(game)
         }, 250);
 
     } else alert("Please complete the name and select the game mode.")
@@ -38,11 +56,7 @@ let pcChoice
 let gameOnCourse = false
 let pcScore = document.querySelector('#pc-score')
 let playerScore = document.querySelector('#player-score')
-let hoverSound = document.querySelector("#hover-sound")
-let lostSound = document.querySelector("#lost")
-let winSound = document.querySelector("#win")
-let pcPlaySound = document.querySelector("#pc-play-sound")
-winSound.volume = 0.7
+
 
 function playerButtonsProgram() {
     playerImgs.forEach(playerImg => {
@@ -80,6 +94,7 @@ function setPcChoice() {
 }
 
 function compareResult() {
+    let messageHeader = document.querySelector("#message-header")
     if (pcChoice == playerChoice)
         showResultMessage("Tie")
     else if ((playerChoice == "rock" && pcChoice == "papper") || (playerChoice == "papper" && pcChoice == "scissors") || (playerChoice == "scissors" && pcChoice == "rock")) {
@@ -118,8 +133,7 @@ function showResultMessage(message) {
 }
 
 function endGame (){
-    document.querySelector("#game").classList.toggle("hidden")
-    document.querySelector("#finished-game-modal").classList.toggle("hidden")
+    showView(finishedModal)
     document.querySelector("#finished-game-modal").classList.remove("animate__fadeOutRight")
 }
  // Play effect
@@ -188,10 +202,9 @@ exitButton.onclick=()=>{
     playerName.value=""
     gameModeOptions.forEach(gameModeOption => { if (gameModeOption.checked) return gameModeOption.checked=false })
     setTimeout(() => {
-        document.querySelector("#finished-game-modal").classList.toggle("hidden")
         document.querySelector("#initial-modal").classList.add("animate__fadeInLeft")    
         document.querySelector("#initial-modal").classList.remove("animate__fadeOutRight")    
-        document.querySelector("#initial-modal").classList.remove("hidden")    
+        showView(initialModal)    
     }, 250);
 }
  function resetScore(){
@@ -200,7 +213,6 @@ exitButton.onclick=()=>{
     pcScore.innerHTML=0
     playerScore.innerHTML=0 
  }
-
 
 
 
