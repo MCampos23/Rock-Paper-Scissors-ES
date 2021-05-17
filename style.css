@@ -60,4 +60,20 @@ label:hover{
 .hidden{
   display: none;
 }
-
+audio::-webkit-media-controls-timeline-container,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline{
+  display: none;
+}
+audio{
+  margin-left: -12%;
+  width: 90px;
+  height: 20px;
+  opacity: 0.8;
+}
+audio:hover{
+  opacity: 0.9;
+  width: 150px;
+  transition: all 300ms;
+}

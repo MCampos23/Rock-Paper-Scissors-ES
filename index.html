@@ -23,7 +23,7 @@
         <h1>Rock, Papper, Scissors</h1>
     </header>
     <!-- Initial Modal Window-->
-<div class="container animate__animated" id="initial-modal">
+<div class="container hidden animate__animated" id="initial-modal">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card mt-5">
@@ -56,7 +56,8 @@
     </div>
 </div>
 <!--Game View-->
-    <div class="container pt-3 mt-4 hidden animate__animated" id="game">
+    <div class="container pt-3 mt-4 animate__animated" id="game">
+        <audio id="back-track" src="sounds/Background music Asian Travel (mp3cut.net).mp3" loop controls></audio>
         <div class="row text-center">
             <div class="d-flex flex-column mb-3 col-md-4" id="player-column">
                 <h3 id="player-name">Player</h3>
@@ -76,6 +77,8 @@
                 <div class="p-4"><img src="img/rock.png" alt="rock" class="pc-img"/></div>
                 <div class="p-4"><img src="img/paper.png" alt="papper" class="pc-img"/></div>
                 <div class="p-4"><img src="img/scissors.png" alt="scissors" class="pc-img"/></div>
+                <div id="audio-controls">
+                </div>
             </div>
         </div>
     </div>
@@ -99,7 +102,6 @@
         </div>
     </div>
 </div>
-<audio id="back-track" src="sounds/Background music Asian Travel (mp3cut.net).mp3" loop></audio>
 <audio id="hover-sound" src="sounds/Hover.mp3"></audio>
 <audio id="lost" src="sounds/lost.wav"></audio>
 <audio id="win" src="sounds/win.wav"></audio>
