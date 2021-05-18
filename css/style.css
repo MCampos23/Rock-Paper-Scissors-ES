@@ -52,6 +52,7 @@ audio:hover {
   display: none;
 }
 
+input[type=radio],
 label:hover {
   cursor: pointer;
 }
