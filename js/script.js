@@ -95,7 +95,9 @@ function compareResult(pcChoice, playerChoice) {
     let message = document.querySelector("#message")
     if (pcChoice == playerChoice)
         showResultMessage("Tie")
-    else if ((playerChoice == "rock" && pcChoice == "papper") || (playerChoice == "papper" && pcChoice == "scissors") || (playerChoice == "scissors" && pcChoice == "rock")) {
+    else if ((playerChoice == "rock" && pcChoice == "papper") || 
+            (playerChoice == "papper" && pcChoice == "scissors") || 
+            (playerChoice == "scissors" && pcChoice == "rock")) {
         showResultMessage("You lose...")
         setTimeout(() => {
             pcPoints++
