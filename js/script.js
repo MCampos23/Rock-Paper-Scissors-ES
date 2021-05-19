@@ -143,8 +143,8 @@ playerButtonsProgram()
 let interval
 
 function pcPlayEffect() {
-    pcPlaySound.play()
     let counter = 0;
+    pcPlaySound.play()
     startEffect();
     interval = setInterval(() => {
         counter++;
@@ -172,6 +172,10 @@ function startEffect() {
     }, 300);
 }
 
+function stopEffect() {
+    clearInterval(interval)
+}
+
 function addRemoveBorder(img) {
     pcImgs[img].classList.toggle("pcPlay")
     setTimeout(function () { pcImgs[img].classList.toggle("pcPlay") }, 150);
@@ -179,10 +183,6 @@ function addRemoveBorder(img) {
 
 function stayOn(img) {
     setTimeout(function () { pcImgs[img].classList.add("pcPlay") }, 470);
-}
-
-function stopEffect() {
-    clearInterval(interval)
 }
 
 //---- FINISHED GAME MODAL WINDOW ----//

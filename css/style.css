@@ -52,7 +52,7 @@ audio:hover {
   display: none;
 }
 
-input[type=radio],
+input[type="radio"],
 label:hover {
   cursor: pointer;
 }
@@ -111,12 +111,12 @@ label:hover {
   }
 
   #player-column,
-#pc-column {
+  #pc-column {
     width: 33%;
   }
 
   .player-img,
-.pc-img {
+  .pc-img {
     width: 85px;
   }
 
@@ -167,8 +167,8 @@ label:hover {
   }
 
   #player-column,
-#pc-column,
-#score-column {
+  #pc-column,
+  #score-column {
     width: 33%;
     font-size: 25px;
     text-align: center;
@@ -179,7 +179,7 @@ label:hover {
   }
 
   .player-img,
-.pc-img {
+  .pc-img {
     width: 80px;
   }
 
