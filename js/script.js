@@ -79,7 +79,7 @@ function playerButtonsProgram() {
 function setPcChoice() {
     let num = Math.ceil(Math.random() * 3)
     if (num === 1) return pcChoice = "rock"
-    else if (num === 2) return pcChoice = "papper"
+    else if (num === 2) return pcChoice = "paper"
     else if (num === 3) return pcChoice = "scissors"
     return pcChoice
 }
@@ -95,8 +95,8 @@ function compareResult(pcChoice, playerChoice) {
     let message = document.querySelector("#message")
     if (pcChoice == playerChoice)
         showResultMessage("Tie")
-    else if ((playerChoice == "rock" && pcChoice == "papper") || 
-            (playerChoice == "papper" && pcChoice == "scissors") || 
+    else if ((playerChoice == "rock" && pcChoice == "paper") || 
+            (playerChoice == "paper" && pcChoice == "scissors") || 
             (playerChoice == "scissors" && pcChoice == "rock")) {
         showResultMessage("You lose...")
         setTimeout(() => {
@@ -154,7 +154,7 @@ function pcPlayEffect() {
             stopEffect();
             if (pcChoice === "rock") {
                 stayOn(0);
-            } else if (pcChoice === "papper") {
+            } else if (pcChoice === "paper") {
                 stayOn(1);
             } else if (pcChoice === "scissors") {
                 stayOn(2);
