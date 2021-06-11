@@ -17,6 +17,7 @@ let winSound = document.querySelector("#win")
 let pcPlaySound = document.querySelector("#pc-play-sound")
 winSound.volume = 0.7
 
+//--- Views ---//
 let initialModal = document.querySelector("#initial-modal")
 let game = document.querySelector("#game")
 let finishedModal = document.querySelector("#finished-game-modal")
@@ -26,16 +27,16 @@ let finishedModal = document.querySelector("#finished-game-modal")
 playerName.onkeydown = () => buttonPressedSound.play()
 
 document.querySelector("#enter-button").onclick = () => {
-    setGameMode()
-    playerName.value = document.querySelector("#player-name").innerHTML
-    if (!playerName.value && gameMode != undefined) {
+    setGameMode()    
+    if (playerName.value!="" && gameMode != undefined) {
+        document.querySelector("#player-name").innerHTML = playerName.value
         backTrack.play()
         initialModal.classList.add("animate__fadeOutRight")
         game.classList.add("animate__fadeInUp")
         setTimeout(() => {
             showView(game)
         }, 250);
-    } else alert("Please complete the name and select the game mode.")
+    } else alert("Por favor completa el nombre y selecciona un modo de juego.")
 }
 
 function showView(view) {
@@ -51,9 +52,9 @@ function setGameMode() {
 
 //---- GAME ----//
 
+let playerImgs = Array.from(document.querySelectorAll('.player-img'))
+let pcImgs = Array.from(document.querySelectorAll('.pc-img'))
 function playerButtonsProgram() {
-    let playerImgs = Array.from(document.querySelectorAll('.player-img'))
-    let pcImgs = Array.from(document.querySelectorAll('.pc-img'))
     let pcChoice
     let playerChoice
     playerImgs.forEach(playerImg => {
@@ -94,17 +95,17 @@ function compareResult(pcChoice, playerChoice) {
     let messageHeader = document.querySelector("#message-header")
     let message = document.querySelector("#message")
     if (pcChoice == playerChoice)
-        showResultMessage("Tie")
+        showResultMessage("Empate")
     else if ((playerChoice == "rock" && pcChoice == "paper") || 
             (playerChoice == "paper" && pcChoice == "scissors") || 
             (playerChoice == "scissors" && pcChoice == "rock")) {
-        showResultMessage("You lose...")
+        showResultMessage("Pierdes...")
         setTimeout(() => {
             pcPoints++
             pcScore.innerHTML = pcPoints
             if (pcPoints == gameMode) {
-                messageHeader.innerHTML = "You've definetly lost..."
-                message.innerHTML = "Sometimes in life it is better to give up...or not?"
+                messageHeader.innerHTML = "Oh...has perdido..."
+                message.innerHTML = "A veces en la vida es mejor abandonar...o no?"
                 backTrack.pause()
                 lostSound.play()
                 setTimeout(() => endGame(), 800)
@@ -112,13 +113,13 @@ function compareResult(pcChoice, playerChoice) {
         }, 1000);
     }
     else {
-        showResultMessage("You win!")
+        showResultMessage("Ganas!")
         setTimeout(() => {
             playerPoints++
             playerScore.innerHTML = playerPoints
             if (playerPoints == gameMode) {
-                messageHeader.innerHTML = "Congratulations!!"
-                message.innerHTML = "Was it all about luck, or you are an actual champion?"
+                messageHeader.innerHTML = "Enhorabuena!!"
+                message.innerHTML = "Fué cuestión de suerte, o eres inbatible de verdad?"
                 backTrack.pause()
                 winSound.play()
                 setTimeout(() => endGame(), 800)
